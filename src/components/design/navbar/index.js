@@ -2,29 +2,25 @@ import React from 'react';
 
 const Navbar = () => {
     return(
-        <div className="row"> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <span className="navbar-brand mb-0 h1">Google Books</span>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style={styles.navbar}>
+            <span className="navbar-brand mb-0 h1" style={styles.text}>Google Books</span>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Search</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Saved</a>
-                        </li>
-                    </ul>
+                    {/* ADD PROPER HREF LINKS WHEN SAVED AND SEARCH PAGES ARE BUILT */}
+                    <a class="nav-item nav-link" href="/" style={styles.text}>Saved</a>
+                    <a class="nav-item nav-link" href="/" style={styles.text}>Search</a>
                 </div>
-            </nav> 
-        </div> 
+        </nav> 
     )
 };
 
-//Style Later
-// const styles = {
-//     navigation: {
-    
-//     }
-// };
+const styles = {
+    navbar: {
+        boxShadow: '0 -8px 6px -6px black'
+    },
+    text: {
+        fontFamily:'Noto Sans HK',
+        color: 'Black',
+    }
+};
 
 export default Navbar;
