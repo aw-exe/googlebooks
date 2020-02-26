@@ -4,7 +4,7 @@ import {
   Footer,
   Jumbotron,
   Navbar
-} from "./Components";
+} from "./components";
 
 function App() {
   return (
@@ -14,6 +14,8 @@ function App() {
       <hr />
 
       <Jumbotron /> 
+
+      {/* if route is saved, load saved Components. else load search. React router DOM switch case. */}
 
       <hr />
 
