@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBooks from '../src/pages/Search'
 
 import {
   Footer,
@@ -11,13 +12,13 @@ function App() {
     <React.Fragment>
       <Navbar /> 
       
-      <hr />
 
       <Jumbotron /> 
 
       {/* if route is saved, load saved Components. else load search. React router DOM switch case. */}
 
-      <hr />
+      <SearchBooks />
+
 
       <Footer /> 
 

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import API from "../utils/API";
 import ViewBtn from "../components/buttons/viewBtn";
 import SaveBtn from "../components/buttons/saveBtn";
-import List from "../components/list";
-import { Input, FormBtn } from "../components/Form";
+import { List, ListItem } from "../list";
+import { Input, FormBtn } from "../components/form";
 import axios from 'axios'
 
 
@@ -37,13 +37,8 @@ const SearchBooks = () => {
                     <Input type="text" onChange={handleChange} placeholder="Search for books"/>
                     <FormBtn type="submit">Search</FormBtn>
                 </form>
-            </div>
-        </div>
-        
-        <div className="container-fluid">
-            <div ClassName="row">
-
-                {books.length ? (
+           
+                {book.length ? (
                     <List>
                     {result.map(book => (
                         <ListItem key={book._id}>
@@ -70,7 +65,7 @@ const SearchBooks = () => {
         </div>
     
     //Why is this parenthesis mad????
-    )
+    );
   }
 
-
+  export default SearchBooks;
