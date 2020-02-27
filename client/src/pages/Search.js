@@ -1,3 +1,1 @@
-//resultBox ->index.js
-//searchBox ->index.js
-
+//Results from the search form to display on this page. 

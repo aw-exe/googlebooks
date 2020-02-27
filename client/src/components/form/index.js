@@ -1,6 +1,6 @@
 import React from "react";
 
-// This file exports the book search section on the top of the search books page. Input is the search box, FormBtn is the search button.
+// This file exports the book search form on the top of the search page. Input is the search box, FormBtn is the search button.
 
 export function Input(props) {
   return (
