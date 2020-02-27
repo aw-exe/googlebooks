@@ -1,9 +1,10 @@
-import Footer from './layout/footer';
-import Jumbotron from './layout/jumbotron'
-import Navbar from './layout/navbar'
+import Navbar from './layout/navbar';
+import Jumbotron from './layout/jumbotron';
+import Footer from './layout/footer'
+
 
 export {
-    Footer,
+    Navbar,
     Jumbotron,
-    Navbar
+    Footer
 };
