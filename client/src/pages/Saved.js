@@ -3,13 +3,11 @@ import API from "../utils/API";
 import ViewBtn from "../components/buttons/viewBtn";
 import DeleteBtn from "../components/buttons/deleteBtn";
 import { List, ListItem } from "../list";
-import axios from 'axios'
 
 
 const SavedBooks = () => {
     
-    const [savedBooks, setSavedBooks] = useState("");
-
+    const [savedBooks, setSavedBooks] = useState("");    
 
     useEffect(() => {
         loadSavedBooks();
@@ -37,40 +35,35 @@ const SavedBooks = () => {
       }
     };
 
-  
+    function handleView (event){
+        event.preventDefault();
+        const id = event.target.getAttribute("data-id");
+    }
+    
+    function handleDelete (event){
+        event.preventDefault();
+        const savedId = event.target.getAttribute("data-id");
+        deleteSavedBook(savedId)
+    }
+
     return (
         <div className="container-fluid">
             <div ClassName="row">
                 <h1>Saved Books</h1>
-                {savedBooks.length ? (
-                    <List>
-                    {result.map(book => (
-                        <ListItem key={book._id}>
-                        <p>
-                            <strong>
-                            {book.volumeInfo.title} 
-                            </strong>
+           
+                {savedBooks.length ?  
+                (<SavedResults 
+                deleteHandler ={deleteHandler}
+                viewHandler = {viewHandler}
+                savedBooks = {savedBooks}
+                />
+                ): 
+                (<EmptySavedCard/>)
+            }
+      </div>
+    )
+}
 
-                            {book.volumeInfo.subtitle}
-                            {book.volumeInfo.authors}
-                            {book.volumeInfo.description}
-                            {book.volumeInfo.imageLinks &&
-                               (<img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />)
-                            }
-                        </p>
-                        
-                        <ViewBtn url={book.volumeInfo.previewLink} />
-                        <DeleteBtn />
-                        </ListItem>
-                    ))}
-                    </List>
-                ) : (
-                    <h3>No Results to Display</h3>
-                )}
-            </div>
-        </div>
-    
-    );
-  }
+       
 
   export default SavedBooks;
