@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./pages/Search";
-import Saved from "./pages/Saved";
+// import Saved from "./pages/Saved";
 
 import {
   Footer,
@@ -12,23 +12,25 @@ import {
 function App() {
   return (
     <React.Fragment>
-      <Router>
+      {/* <Router> */}
 
         <Navbar /> 
         
 
         <Jumbotron /> 
 
-        <Switch>
+        {/* <Switch>
             <Route exact path="/" component={Search} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/saved" component={Saved} />
-        </Switch>
+        </Switch> */}
+
+        <Search />
 
 
         <Footer /> 
       
-      </Router>
+      {/* </Router> */}
 
     </React.Fragment>
   );
