@@ -1,5 +1,7 @@
 import React from 'react';
-import SearchBooks from '../src/pages/Search'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
 
 import {
   Footer,
@@ -10,17 +12,23 @@ import {
 function App() {
   return (
     <React.Fragment>
-      <Navbar /> 
+      <Router>
+
+        <Navbar /> 
+        
+
+        <Jumbotron /> 
+
+        <Switch>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/saved" component={Saved} />
+        </Switch>
+
+
+        <Footer /> 
       
-
-      <Jumbotron /> 
-
-      {/* if route is saved, load saved Components. else load search. React router DOM switch case. */}
-
-      <SearchBooks />
-
-
-      <Footer /> 
+      </Router>
 
     </React.Fragment>
   );
