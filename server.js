@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Add routes, both API and view
-require('./routes/api-routes')(app);
+app.use(require('./routes/index'))
 
 //Connect to Mongo DB
 mongoose.connect(process.env.MONGOOSE_URI || 'mongodb://localhost/googlebooks');
