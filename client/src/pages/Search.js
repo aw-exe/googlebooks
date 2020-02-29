@@ -22,9 +22,9 @@ const SearchBooks = () => {
     function handleSubmit(event){
       event.preventDefault();
   
-      axios.get("GET https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=20")
+      axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=20")
         .then(data => {
-          setResult(data.data.items);
+          setResult(data.data.items || []);
         }
       )
     }
@@ -42,7 +42,7 @@ const SearchBooks = () => {
                     <List>
                     {result.map(book => (
                         <ListItem key={book._id}>
-                        <a href={"/books/" + book._id}>
+                        <p>
                             <strong>
                             {book.volumeInfo.title} 
                             </strong>
@@ -50,10 +50,12 @@ const SearchBooks = () => {
                             {book.volumeInfo.subtitle}
                             {book.volumeInfo.authors}
                             {book.volumeInfo.description}
-            
-                            <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
-                        </a>
-                        <ViewBtn target="_blank" href={book.volumeInfo.previewLink} />
+                            {book.volumeInfo.imageLinks &&
+                               (<img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />)
+                            }
+                        </p>
+                        
+                        <ViewBtn url={book.volumeInfo.previewLink} />
                         <SaveBtn />
                         </ListItem>
                     ))}
@@ -64,7 +66,6 @@ const SearchBooks = () => {
             </div>
         </div>
     
-    //Why is this parenthesis mad????
     );
   }
 
